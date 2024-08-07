@@ -1,5 +1,5 @@
 import pytest
-from pages.base_action_page import base_actions_desktop, base_actions_mobile
+from pages.base_action_page import base_actions_all
 
 desktop_only = pytest.mark.parametrize("setup_browser",
                                        [(2560, 1440), (1920, 1080)],
@@ -13,11 +13,11 @@ mobile_only = pytest.mark.parametrize("setup_browser",
 
 @mobile_only
 def test_mobile_indirect(setup_browser):
-    base_actions_mobile.open_git()
-    base_actions_mobile.mobile_actions()
+    base_actions_all.open_git()
+    base_actions_all.mobile_actions()
 
 
 @desktop_only
 def test_desktop_indirect(setup_browser):
-    base_actions_desktop.open_git()
-    base_actions_desktop.desktop_actions()
+    base_actions_all.open_git()
+    base_actions_all.desktop_actions()
