@@ -9,7 +9,7 @@ def setup_browser(request):
     width, height = request.param
     browser.config.window_width = width
     browser.config.window_height = height
-    if width > 900:
+    if width > 1080:
         yield "desktop"
     else:
         yield "mobile"
@@ -27,7 +27,7 @@ def desktop_browser(request):
     browser.quit()
 
 
-@pytest.fixture(params=[(430, 932), (390, 844), (360, 740)])
+@pytest.fixture(params=[(414, 896), (390, 844), (360, 740)])
 def mobile_browser(request):
     browser.config.base_url = 'https://github.com'
     width, height = request.param
